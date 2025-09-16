@@ -1,0 +1,153 @@
+:root {
+  --glass: rgba(255, 255, 255, 0.2);
+  --radius: 15px;
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  --text-color: #ffffff;
+  --blur: blur(10px);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  transition: background-image 1s ease-in-out;
+  position: relative;
+  display: block; /* remove flexbox */
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: -1;
+}
+
+.fade-in {
+  animation: fadeIn 1s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+#weather-container {
+  z-index: 1;
+  background: var(--glass);
+  border-radius: var(--radius);
+  padding: 2rem;
+  max-width: 400px;
+  width: 90%;
+  backdrop-filter: var(--blur);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: var(--shadow);
+  text-align: center;
+  color: var(--text-color);
+  transition: backdrop-filter 0.6s ease;
+}
+
+form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  font-size: 1rem;
+}
+
+button {
+  background-color: #7f5af0;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.4s ease;
+}
+
+button:hover {
+  background-color: #5b34d4;
+}
+
+#weather-icon {
+  width: 150px;
+  height: 150px;
+  margin-top: 10px;
+}
+
+#temp-div p {
+  font-size: 3rem;
+  animation: pop 0.6s ease-in-out;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.6); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+#weather-info p {
+  font-size: 1.1rem;
+  margin: 5px 0;
+  animation: fadeIn 1s ease;
+}
+
+#hourly-forecast {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  margin-top: 1rem;
+  padding-bottom: 10px;
+}
+
+.hourly-item {
+  flex: 0 0 auto;
+  min-width: 80px;
+  background: rgba(255, 255, 255, 0.25);
+  padding: 10px;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  color: white;
+  animation: slideUp 0.5s ease-in forwards;
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+@keyframes slideUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.loader {
+  width: 40px;
+  margin: 10px auto;
+}
+
+.hidden {
+  display: none !important;
+}
+h1 {
+  color: white;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 10px 15px;
+  border-radius: 10px;
+  display: inline-block;
+}
+#weather-container {
+  margin: 2rem auto;
+} 
