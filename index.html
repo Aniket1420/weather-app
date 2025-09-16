@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather App</title>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+  <main id="weather-container" class="fade-in">
+    <h1>Weather App</h1>
+    <form id="search-form" autocomplete="off">
+      <input id="city-input" type="text" placeholder="Enter city" required />
+      <button type="submit"> search🔍</button>
+    </form>
+
+    <img id="weather-icon" alt="Weather Icon" class="hidden"/>
+    <div id="temp-div"></div>
+    <div id="weather-info"></div>
+
+    <h2 id="hourly-heading" class="hidden">Next 24h</h2>
+    <div id="hourly-forecast"></div>
+
+    <img src="assets/loader.svg" id="loader" alt="Loading..." class="loader hidden"/>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
